@@ -1,7 +1,7 @@
 # Totalsportek
 
 # Description
-
+This is a simple web app that will allow football fans of the english premier league to view available fixtures, news and the rankings of the teams.
 # Screenshots
 
 ![Screenshot1]()
