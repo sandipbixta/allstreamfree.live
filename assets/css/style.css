@@ -7,14 +7,37 @@ body{
     height: 80px;
     border-radius: 50px;
 }
+.logo{
+    align-self: center;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+}
+
+#nav_heading a{
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: 1.5rem;
+    margin-left: 20%;
+}
+
+#nav_heading a:focus{
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness:5px;
+    text-underline-offset: 8px;
+}
+
 .nav{
     display: flex;
     justify-content: space-between;
     background-color: black;
+    height: 100px;
 }
 .nav_items{
     display: flex;
-    width: 80%;
+    width: 70%;
     justify-content: space-around;
     align-items: center;
 }
@@ -24,4 +47,11 @@ body{
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
+}
+
+.nav_items a:focus{
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness:5px;
+    text-underline-offset: 8px;
 }
