@@ -29,9 +29,14 @@
     <div class="container10" id="bottom">
         <h1>We'd like to keep in touch</h1>
         <p>Subscribe to our news letter</p>
-        <form action="#" class="inline-form">
-            <input type="email" id="email1" placeholder="Enter your email address">
-            <input type="submit" value="Subscribe" id="submit">
+        <form action="http://localhost:3000/formData" id="form" method="POST">
+            <label class="label" for="fname"> First Name: </label>
+            <input class="input" type="text" id="fname" name="firstName" required><br>
+            <label class="label" for="lname">Last Name: </label>
+            <input class="input" type="text" id="lname" name="lastName" required><br>
+            <label class="label" for="email1">Email: </label>
+            <input class="input" type="email" id="email1" name="email" required><br>
+            <input type="submit" value="Subscribe" id="submit"><br>
         </form>
     </div>
 </div>
