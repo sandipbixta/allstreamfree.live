@@ -4,8 +4,8 @@
 This is a simple web app that will allow football fans of the english premier league to view available fixtures, news and the rankings of the teams.
 # Screenshots
 
-![Screenshot1]()
-![screenshot2]()
+![Screenshot1](https://github.com/Ab9laziz/totalsportek/blob/master/assets/images/screenshot1.png)
+![screenshot2](https://github.com/Ab9laziz/totalsportek/blob/master/assets/images/screenshot2.png)
 
 # Setup and installation instructions
 - Clone the repository to your computer from https://github.com/Ab9laziz/totalsportek
