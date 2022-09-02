@@ -50,13 +50,18 @@ document.addEventListener('DOMContentLoaded', function(){
     fetch('https://football-web-pages1.p.rapidapi.com/league-table.json?comp=1&team=1', options)
 	.then(response => response.json())
 	.then(function(response){
-        let myArray=response.league-table.teams;
-        myArray.forEach((element,index) => {
-            let td =document.getElementsByTagName('td')
-            td[index].innerText=element.name
-            td[index+1].innerText=element.total-points
+        let myArray=response['league-table']['teams'];
+        let td1=document.getElementsByClassName('name');
+        let td2=document.getElementsByClassName('points')
+        
+        myArray.forEach((element,index) => { 
+             td1[index].innerText=element.name
+             td2[index].innerText=element['total-points']
+    
+            
+            
         });
         console.log(myArray);
     })
-	.catch(err => console.error(err));    
-})
+    .catch(err => console.error(err))
+});
