@@ -38,3 +38,25 @@ let a = document.querySelectorAll('.news a')
 a[0].addEventListener('click',e=>e.preventDefault());
 a[1].addEventListener('click',e=>e.preventDefault());
 a[2].addEventListener('click',e=>e.preventDefault());
+
+document.addEventListener('DOMContentLoaded', function(){
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'a0ee7f718bmshd0b98f2a185067ep12fcdejsn8ff84a6aeaa9',
+            'X-RapidAPI-Host': 'football-web-pages1.p.rapidapi.com'
+        }
+    };
+    fetch('https://football-web-pages1.p.rapidapi.com/league-table.json?comp=1&team=1', options)
+	.then(response => response.json())
+	.then(function(response){
+        let myArray=response.league-table.teams;
+        myArray.forEach((element,index) => {
+            let td =document.getElementsByTagName('td')
+            td[index].innerText=element.name
+            td[index+1].innerText=element.total-points
+        });
+        console.log(myArray);
+    })
+	.catch(err => console.error(err));    
+})
