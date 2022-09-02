@@ -146,9 +146,11 @@ body{
     border-radius: 5px;
     margin-bottom: 50px;
     box-shadow: 10px 10px 8px -4px rgb(178, 176, 176);
+    
 }
 .fixture-card:hover{
-    border: #2C3333 3px solid
+    border: #2C3333 3px solid;
+    box-shadow: 10px 10px 0px -4px rgb(178, 176, 176);
 }
 
 [alt=liverpool]{
