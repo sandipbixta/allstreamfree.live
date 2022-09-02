@@ -255,6 +255,41 @@ body{
     bottom: 80px;
     left: 270px;
 }
+
+                                        /* Table */
+hr{
+    margin-top: 200px;
+    border:#2C3333 solid 15px;
+    border-bottom: 0;
+}
+.table{
+    height: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.table h1{
+    position: relative;
+    left: 50px;
+    text-decoration: underline;
+}
+
+table{
+    position: relative;
+    left: 50px;
+    font-size: 2rem;
+    /* border: #2C3333 1px solid; */
+    margin-bottom: 30px;
+}
+td:nth-child(2){
+    position: relative;
+    left: 50px;
+}
+th:nth-child(2){
+    position: relative;
+    left: 50px; 
+}
+
                                           /* Footer */
 
 .container9{
