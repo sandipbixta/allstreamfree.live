@@ -61,6 +61,7 @@ body{
     font-family: 'Poppins', sans-serif;
     position: relative;
     left: 45px;
+    width: 90%;
 }
 
 .card{
@@ -107,6 +108,151 @@ body{
     text-decoration: none;
 }
 
+                                        /* Fixtures */
+.fixtures{
+    position: relative;
+    top: 100px;
+    height: 600px;
+}
+.fixture-flex1{
+    display: flex;
+    justify-content: space-around;
+}
+.fixture-flex2{
+    display: flex;
+    justify-content: space-around;
+}
+.fixtures h2{
+    display: inline;
+    position: relative;
+    bottom: 20px;
+}
+.fixtures h3{
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+    left: 55px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.fixtures img{
+    height: 50px;
+}
+.fixture-card{
+    width: 23%;
+    height: 130px;
+    border: #2C3333 1px solid;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    box-shadow: 10px 10px 8px -4px rgb(178, 176, 176);
+}
+.fixture-card:hover{
+    border: #2C3333 3px solid
+}
+
+[alt=liverpool]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+[alt=newcastle]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    top: 70px;
+    right: 50px;
+}
+[alt=westham]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+[alt=tottenham]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    top: 70px;
+    right: 50px;
+}
+[alt=ars]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+[alt=aston]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    top: 70px;
+    right: 50px;
+}
+[alt=brentford]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+[alt=leeds]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    top: 70px;
+    right: 50px;
+}
+[alt=leicester]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+[alt=mancity]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    top: 70px;
+    right: 50px;
+}
+[alt=wolves]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    top: 70px;
+    right: 50px;
+    
+}
+[alt=brighton]{
+    border-radius: 30px;
+    width: 50px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+    
+}
+.first{
+    position: relative;
+    bottom: 50px;
+    left: 70px;
+}
+
+.second{
+    position: relative;
+    bottom: 20px;
+    left: 70px; 
+}
+.third{
+    position: relative;
+    bottom: 80px;
+    left: 270px;
+}
                                           /* Footer */
 
 .container9{
