@@ -109,3 +109,134 @@
     </script>
 </body>
 </html>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Streaming</title>
+  <style>
+    .football-section {
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .team-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .team {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .team-logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .team-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .media-player {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 9999;
+      color: white;
+      text-align: center;
+    }
+
+    .media-player video {
+      width: 100%;
+      height: auto;
+    }
+
+    .media-player button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .media-player button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="football-section">
+    <h2>Football</h2>
+    <ul class="team-list">
+      <li class="team" data-team="team1">
+        <img src="team1_logo.png" alt="Team 1 Logo" class="team-logo">
+        <span class="team-name">Team 1</span>
+      </li>
+      <li class="team" data-team="team2">
+        <img src="team2_logo.png" alt="Team 2 Logo" class="team-logo">
+        <span class="team-name">Team 2</span>
+      </li>
+      <!-- Add more teams here -->
+    </ul>
+  </div>
+
+  <script>
+    const teams = document.querySelectorAll('.team');
+
+    teams.forEach(team => {
+      team.addEventListener('click', (e) => {
+        const teamName = e.currentTarget.querySelector('.team-name').textContent;
+        openMediaPlayer(teamName);
+      });
+    });
+
+    function openMediaPlayer(teamName) {
+      const player = document.createElement('div');
+      player.classList.add('media-player');
+      player.innerHTML = `
+        <h3>${teamName} - Match Streaming</h3>
+        <video id="video-player" controls>
+          <source src="https://bit.ly/ddy-m3u1all" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button onclick="toggleFullscreen()">Fullscreen</button>
+        <button onclick="toggleSize()">Medium Size</button>
+      `;
+
+      document.body.appendChild(player);
+    }
+
+    function toggleFullscreen() {
+      const video = document.getElementById('video-player');
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+    }
+
+    function toggleSize() {
+      const video = document.getElementById('video-player');
+      if (video.style.width === "100%") {
+        video.style.width = "50%";
+      } else {
+        video.style.width = "100%";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
