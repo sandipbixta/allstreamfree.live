@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Streaming</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .game-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .game {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .game:hover {
+      background-color: #0056b3;
+    }
+
+    .media-player {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 9999;
+      color: white;
+      text-align: center;
+    }
+
+    .media-player video {
+      width: 100%;
+      height: auto;
+    }
+
+    .media-player button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .media-player button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Live Sports Games</h2>
+    <ul class="game-list">
+      <li class="game" data-game="game1" data-stream="https://bit.ly/ddy-m3u1all">Football Match 1</li>
+      <li class="game" data-game="game2" data-stream="https://bit.ly/ddy-m3u1all">Football Match 2</li>
+      <!-- Add more games here -->
+    </ul>
+  </div>
+
+  <script>
+    const games = document.querySelectorAll('.game');
+
+    games.forEach(game => {
+      game.addEventListener('click', (e) => {
+        const gameName = e.currentTarget.textContent;
+        const streamLink = e.currentTarget.getAttribute('data-stream');
+        openMediaPlayer(gameName, streamLink);
+      });
+    });
+
+    function openMediaPlayer(gameName, streamLink) {
+      const player = document.createElement('div');
+      player.classList.add('media-player');
+      player.innerHTML = `
+        <h3>${gameName} - Match Streaming</h3>
+        <video id="video-player" controls>
+          <source src="${streamLink}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button onclick="toggleFullscreen()">Fullscreen</button>
+        <button onclick="toggleSize()">Medium Size</button>
+        <button onclick="closePlayer()">Close</button>
+      `;
+
+      document.body.appendChild(player);
+    }
+
+    function toggleFullscreen() {
+      const video = document.getElementById('video-player');
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+    }
+
+    function toggleSize() {
+      const video = document.getElementById('video-player');
+      if (video.style.width === "100%") {
+        video.style.width = "50%";
+      } else {
+        video.style.width = "100%";
+      }
+    }
+
+    function closePlayer() {
+      const player = document.querySelector('.media-player');
+      if (player) {
+        player.remove();
+      }
+    }
+  </script>
+
+</body>
+</html>
 /index.html
