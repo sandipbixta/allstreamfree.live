@@ -1,334 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Sports Streaming</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.14.3/video-js.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.14.3/video.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/videojs-http-streaming@2.14.1/dist/videojs-http-streaming.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #0056b3;
-            text-align: center;
-            padding: 20px;
-        }
-        .navbar {
-            margin-bottom: 20px;
-        }
-        .navbar a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            background: #0056b3;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .navbar a:hover {
-            background: #003d7a;
-        }
-        .games-container {
-            max-width: 800px;
-            margin: auto;
-            background: #f0f8ff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
-        }
-        .game {
-            padding: 10px;
-            background: white;
-            margin: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .game:hover {
-            background: #e0f0ff;
-        }
-        .player-container {
-            display: none;
-            max-width: 800px;
-            margin: auto;
-            background: #f0f8ff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
-        }
-        h1 {
-            color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-  <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Football Streaming</title>
+  <title>Live Football Streaming</title>
   <style>
-    .football-section {
-      padding: 20px;
-      background-color: #fff;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
     }
 
     .team-list {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
       list-style: none;
       padding: 0;
     }
 
     .team {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .media-player {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      z-index: 9999;
-      color: white;
-      text-align: center;
-    }
-
-    .media-player video {
-      width: 100%;
-      height: auto;
-    }
-
-    .media-player button {
-      background-color: #007bff;
-      border: none;
-      color: white;
-      padding: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .media-player button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="football-section">
-    <h2>Football</h2>
-    <ul class="team-list">
-      <li class="team" data-team="team1">
-        <span class="team-name">Team 1</span>
-      </li>
-      <li class="team" data-team="team2">
-        <span class="team-name">Team 2</span>
-      </li>
-      <!-- Add more teams here -->
-    </ul>
-  </div>
-
-  <script>
-    const teams = document.querySelectorAll('.team');
-
-    teams.forEach(team => {
-      team.addEventListener('click', (e) => {
-        const teamName = e.currentTarget.querySelector('.team-name').textContent;
-        openMediaPlayer(teamName);
-      });
-    });
-
-    function openMediaPlayer(teamName) {
-      const player = document.createElement('div');
-      player.classList.add('media-player');
-      player.innerHTML = `
-        <h3>${teamName} - Match Streaming</h3>
-        <video id="video-player" controls>
-          <source src="https://bit.ly/ddy-m3u1all" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button onclick="toggleFullscreen()">Fullscreen</button>
-        <button onclick="toggleSize()">Medium Size</button>
-      `;
-
-      document.body.appendChild(player);
-    }
-
-    function toggleFullscreen() {
-      const video = document.getElementById('video-player');
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      }
-    }
-
-    function toggleSize() {
-      const video = document.getElementById('video-player');
-      if (video.style.width === "100%") {
-        video.style.width = "50%";
-      } else {
-        video.style.width = "100%";
-      }
-    }
-  </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sports Streaming</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .game-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .game {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      cursor: pointer;
       padding: 10px;
       background-color: #007bff;
       color: white;
+      margin: 10px 0;
       border-radius: 5px;
-      transition: background-color 0.3s;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.3s;
     }
 
-    .game:hover {
+    .team:hover {
       background-color: #0056b3;
     }
 
-    .media-player {
+    .player-container {
+      display: none;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.9);
       padding: 20px;
       border-radius: 10px;
-      z-index: 9999;
-      color: white;
-      text-align: center;
+      z-index: 1000;
     }
 
-    .media-player video {
+    video {
       width: 100%;
-      height: auto;
+      max-width: 600px;
+      border-radius: 5px;
     }
 
-    .media-player button {
-      background-color: #007bff;
-      border: none;
-      color: white;
-      padding: 10px;
+    .player-controls {
       margin-top: 10px;
-      cursor: pointer;
     }
 
-    .media-player button:hover {
+    .player-controls button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: white;
+      background-color: #007bff;
+      border-radius: 5px;
+    }
+
+    .player-controls button:hover {
       background-color: #0056b3;
     }
   </style>
 </head>
 <body>
+  <div class="header">Live Football Streaming</div>
 
-  <div class="container">
-    <h2>Live Sports Games</h2>
-    <ul class="game-list">
-      <li class="game" data-game="game1" data-stream="https://bit.ly/ddy-m3u1all">Football Match 1</li>
-      <li class="game" data-game="game2" data-stream="https://bit.ly/ddy-m3u1all">Football Match 2</li>
-      <!-- Add more games here -->
-    </ul>
+  <ul class="team-list">
+    <li class="team" onclick="openPlayer('Team 1')">Team 1</li>
+    <li class="team" onclick="openPlayer('Team 2')">Team 2</li>
+    <li class="team" onclick="openPlayer('Team 3')">Team 3</li>
+  </ul>
+
+  <div class="player-container" id="player-container">
+    <h3 id="team-title">Now Playing</h3>
+    <video id="video-player" controls>
+      <source src="https://bit.ly/ddy-m3u1all" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="player-controls">
+      <button onclick="toggleFullscreen()">Fullscreen</button>
+      <button onclick="toggleSize()">Medium Size</button>
+      <button onclick="closePlayer()">Close</button>
+    </div>
   </div>
 
   <script>
-    const games = document.querySelectorAll('.game');
-
-    games.forEach(game => {
-      game.addEventListener('click', (e) => {
-        const gameName = e.currentTarget.textContent;
-        const streamLink = e.currentTarget.getAttribute('data-stream');
-        openMediaPlayer(gameName, streamLink);
-      });
-    });
-
-    function openMediaPlayer(gameName, streamLink) {
-      const player = document.createElement('div');
-      player.classList.add('media-player');
-      player.innerHTML = `
-        <h3>${gameName} - Match Streaming</h3>
-        <video id="video-player" controls>
-          <source src="${streamLink}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button onclick="toggleFullscreen()">Fullscreen</button>
-        <button onclick="toggleSize()">Medium Size</button>
-        <button onclick="closePlayer()">Close</button>
-      `;
-
-      document.body.appendChild(player);
-    }
-
-    function toggleFullscreen() {
-      const video = document.getElementById('video-player');
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      }
-    }
-
-    function toggleSize() {
-      const video = document.getElementById('video-player');
-      if (video.style.width === "100%") {
-        video.style.width = "50%";
-      } else {
-        video.style.width = "100%";
-      }
+    function openPlayer(teamName) {
+      document.getElementById("team-title").innerText = teamName + " - Live Stream";
+      document.getElementById("player-container").style.display = "block";
     }
 
     function closePlayer() {
-      const player = document.querySelector('.media-player');
-      if (player) {
-        player.remove();
+      document.getElementById("player-container").style.display = "none";
+    }
+
+    function toggleFullscreen() {
+      let video = document.getElementById("video-player");
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+    }
+
+    function toggleSize() {
+      let video = document.getElementById("video-player");
+      if (video.style.width === "100%") {
+        video.style.width = "50%";
+      } else {
+        video.style.width = "100%";
       }
     }
   </script>
-
 </body>
 </html>
