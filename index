@@ -1,139 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sports Streaming</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .game-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .game {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      cursor: pointer;
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .game:hover {
-      background-color: #0056b3;
-    }
-
-    .media-player {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      z-index: 9999;
-      color: white;
-      text-align: center;
-    }
-
-    .media-player video {
-      width: 100%;
-      height: auto;
-    }
-
-    .media-player button {
-      background-color: #007bff;
-      border: none;
-      color: white;
-      padding: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .media-player button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeSports.live</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-xl font-bold">FreeSports.live</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-green-400">Home</a></li>
+                    <li><a href="#" class="hover:text-green-400">Live Streams</a></li>
+                    <li><a href="#" class="hover:text-green-400">Categories</a></li>
+                    <li><a href="#" class="hover:text-green-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div class="container">
-    <h2>Live Sports Games</h2>
-    <ul class="game-list">
-      <li class="game" data-game="game1" data-stream="https://bit.ly/ddy-m3u1all">Football Match 1</li>
-      <li class="game" data-game="game2" data-stream="https://bit.ly/ddy-m3u1all">Football Match 2</li>
-      <!-- Add more games here -->
-    </ul>
-  </div>
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white py-20 text-center">
+        <h2 class="text-4xl font-bold">Watch Football Live – Anytime, Anywhere!</h2>
+        <p class="mt-4 text-lg">Experience the best live streams in HD.</p>
+        <a href="#" class="mt-6 inline-block bg-green-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-400">Watch Now</a>
+    </section>
 
-  <script>
-    const games = document.querySelectorAll('.game');
+    <!-- Live Matches Section -->
+    <section class="container mx-auto py-12 px-4">
+        <h3 class="text-2xl font-semibold mb-6">Live Matches</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                <h4 class="text-lg font-semibold">Team A vs Team B</h4>
+                <a href="#" class="block mt-4 bg-blue-600 text-white py-2 text-center rounded-lg hover:bg-blue-500">Watch Live</a>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                <h4 class="text-lg font-semibold">Team C vs Team D</h4>
+                <a href="#" class="block mt-4 bg-blue-600 text-white py-2 text-center rounded-lg hover:bg-blue-500">Watch Live</a>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+                <h4 class="text-lg font-semibold">Team E vs Team F</h4>
+                <a href="#" class="block mt-4 bg-blue-600 text-white py-2 text-center rounded-lg hover:bg-blue-500">Watch Live</a>
+            </div>
+        </div>
+    </section>
 
-    games.forEach(game => {
-      game.addEventListener('click', (e) => {
-        const gameName = e.currentTarget.textContent;
-        const streamLink = e.currentTarget.getAttribute('data-stream');
-        openMediaPlayer(gameName, streamLink);
-      });
-    });
-
-    function openMediaPlayer(gameName, streamLink) {
-      const player = document.createElement('div');
-      player.classList.add('media-player');
-      player.innerHTML = `
-        <h3>${gameName} - Match Streaming</h3>
-        <video id="video-player" controls>
-          <source src="${streamLink}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button onclick="toggleFullscreen()">Fullscreen</button>
-        <button onclick="toggleSize()">Medium Size</button>
-        <button onclick="closePlayer()">Close</button>
-      `;
-
-      document.body.appendChild(player);
-    }
-
-    function toggleFullscreen() {
-      const video = document.getElementById('video-player');
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      }
-    }
-
-    function toggleSize() {
-      const video = document.getElementById('video-player');
-      if (video.style.width === "100%") {
-        video.style.width = "50%";
-      } else {
-        video.style.width = "100%";
-      }
-    }
-
-    function closePlayer() {
-      const player = document.querySelector('.media-player');
-      if (player) {
-        player.remove();
-      }
-    }
-  </script>
-
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 mt-12 text-center">
+        <p>&copy; 2025 FreeSports.live. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-/index.html
