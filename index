@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreeSports.live</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body class="bg-white text-gray-900">
+    <script>console.log("Page loaded successfully!");</script>
     <!-- Header -->
     <header class="bg-blue-600 text-white py-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
